@@ -1,0 +1,17 @@
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\bin\Debug\net10.0-windows\combobox.exe
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\bin\Debug\net10.0-windows\combobox.deps.json
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\bin\Debug\net10.0-windows\combobox.runtimeconfig.json
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\bin\Debug\net10.0-windows\combobox.dll
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\bin\Debug\net10.0-windows\combobox.pdb
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\obj\Debug\net10.0-windows\combobox.Form1.resources
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\obj\Debug\net10.0-windows\combobox.csproj.GenerateResource.cache
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\obj\Debug\net10.0-windows\combobox.GeneratedMSBuildEditorConfig.editorconfig
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\obj\Debug\net10.0-windows\combobox.AssemblyInfoInputs.cache
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\obj\Debug\net10.0-windows\combobox.AssemblyInfo.cs
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\obj\Debug\net10.0-windows\combobox.csproj.CoreCompileInputs.cache
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\obj\Debug\net10.0-windows\combobox.sourcelink.json
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\obj\Debug\net10.0-windows\combobox.dll
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\obj\Debug\net10.0-windows\refint\combobox.dll
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\obj\Debug\net10.0-windows\combobox.pdb
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\obj\Debug\net10.0-windows\combobox.genruntimeconfig.cache
+C:\Gamshikaa\Yarl_IT\C-Sharp\combobox\combobox\obj\Debug\net10.0-windows\ref\combobox.dll
