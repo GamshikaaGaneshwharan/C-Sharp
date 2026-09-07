@@ -157,5 +157,29 @@ namespace WinFormsApp2
             editGrade.ShowDialog();
 
         }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            if (dgvGrades.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a grade.");
+                return;
+            }
+
+            string gradeId = dgvGrades.SelectedRows[0].Cells["id"].Value.ToString();
+
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to delete this grade?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }    
+
+        }
     }
 }

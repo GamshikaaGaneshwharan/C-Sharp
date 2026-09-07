@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            btn_connect = new Button();
             btn_AllGrades = new Button();
             btn_showGrades = new Button();
             btn_edit = new Button();
@@ -51,18 +50,9 @@
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
-            // btn_connect
-            // 
-            btn_connect.Location = new Point(35, 32);
-            btn_connect.Name = "btn_connect";
-            btn_connect.Size = new Size(75, 23);
-            btn_connect.TabIndex = 0;
-            btn_connect.Text = "Connect";
-            btn_connect.UseVisualStyleBackColor = true;
-            // 
             // btn_AllGrades
             // 
-            btn_AllGrades.Location = new Point(130, 32);
+            btn_AllGrades.Location = new Point(35, 32);
             btn_AllGrades.Name = "btn_AllGrades";
             btn_AllGrades.Size = new Size(75, 23);
             btn_AllGrades.TabIndex = 1;
@@ -72,7 +62,7 @@
             // 
             // btn_showGrades
             // 
-            btn_showGrades.Location = new Point(228, 32);
+            btn_showGrades.Location = new Point(135, 32);
             btn_showGrades.Name = "btn_showGrades";
             btn_showGrades.Size = new Size(75, 23);
             btn_showGrades.TabIndex = 2;
@@ -82,7 +72,7 @@
             // 
             // btn_edit
             // 
-            btn_edit.Location = new Point(326, 32);
+            btn_edit.Location = new Point(232, 32);
             btn_edit.Name = "btn_edit";
             btn_edit.Size = new Size(75, 23);
             btn_edit.TabIndex = 3;
@@ -92,7 +82,7 @@
             // 
             // btn_create
             // 
-            btn_create.Location = new Point(426, 32);
+            btn_create.Location = new Point(337, 32);
             btn_create.Name = "btn_create";
             btn_create.Size = new Size(75, 23);
             btn_create.TabIndex = 4;
@@ -102,12 +92,13 @@
             // 
             // btn_delete
             // 
-            btn_delete.Location = new Point(529, 32);
+            btn_delete.Location = new Point(442, 32);
             btn_delete.Name = "btn_delete";
             btn_delete.Size = new Size(75, 23);
             btn_delete.TabIndex = 5;
             btn_delete.Text = "Delete";
             btn_delete.UseVisualStyleBackColor = true;
+            btn_delete.Click += btn_delete_Click;
             // 
             // dgvGrades
             // 
@@ -221,7 +212,6 @@
             Controls.Add(btn_edit);
             Controls.Add(btn_showGrades);
             Controls.Add(btn_AllGrades);
-            Controls.Add(btn_connect);
             Name = "frmGrades";
             Text = "frmGrades";
             Load += frmGrades_Load;
@@ -232,8 +222,6 @@
         }
 
         #endregion
-
-        private Button btn_connect;
         private Button btn_AllGrades;
         private Button btn_showGrades;
         private Button btn_edit;

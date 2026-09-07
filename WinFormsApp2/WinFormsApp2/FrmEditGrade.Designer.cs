@@ -38,7 +38,7 @@
             label_gradeGroup = new Label();
             label_gradeName = new Label();
             label_ID = new Label();
-            btn_edit = new Button();
+            btn_update = new Button();
             SuspendLayout();
             // 
             // cmb_gradeColour
@@ -124,21 +124,22 @@
             label_ID.TabIndex = 7;
             label_ID.Text = "ID";
             // 
-            // btn_edit
+            // btn_update
             // 
-            btn_edit.Location = new Point(189, 353);
-            btn_edit.Name = "btn_edit";
-            btn_edit.Size = new Size(75, 23);
-            btn_edit.TabIndex = 17;
-            btn_edit.Text = "UPDATE";
-            btn_edit.UseVisualStyleBackColor = true;
+            btn_update.Location = new Point(189, 353);
+            btn_update.Name = "btn_update";
+            btn_update.Size = new Size(75, 23);
+            btn_update.TabIndex = 17;
+            btn_update.Text = "UPDATE";
+            btn_update.UseVisualStyleBackColor = true;
+            btn_update.Click += btn_edit_Click;
             // 
             // FrmEditGrade
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(304, 462);
-            Controls.Add(btn_edit);
+            Controls.Add(btn_update);
             Controls.Add(cmb_gradeColour);
             Controls.Add(cmb_gradeOrder);
             Controls.Add(cmb_gradeGroup);
@@ -168,6 +169,6 @@
         private Label label_gradeGroup;
         private Label label_gradeName;
         private Label label_ID;
-        private Button btn_edit;
+        private Button btn_update;
     }
 }

@@ -1,19 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-
-namespace WinFormsApp2
+  
+namespace WinFormsApp2  
 {
     public partial class database_connection : Form
     {
+        string connstring = ConfigurationManager.ConnectionStrings["MyDbConnection"]?.ConnectionString ?? string.Empty;
         public database_connection()
         {
             InitializeComponent();
+            if(string.IsNullOrEmpty(connstring) ) 
+            {
+                MessageBox.Show("Database connection string is not configured. Please check your app.config.", "Configuration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            } 
         }
 
         private void database_connection_Load(object sender, EventArgs e)
@@ -23,8 +30,8 @@ namespace WinFormsApp2
 
         private void btn_All_students_Click(object sender, EventArgs e)
         {
-            string connection = "server=localhost;database=school;user id=root; port=3306; password=root";
-            MySqlConnection conn = new MySqlConnection(connection);
+            //string connection = "server=localhost;database=school;user id=root; port=3306; password=root";
+            MySqlConnection conn = new MySqlConnection(connstring);
             try
             {
                 conn.Open();
@@ -36,8 +43,8 @@ namespace WinFormsApp2
                 dgvStudents.DataSource = dt;
             }
             catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
+            {   
+                MessageBox.Show(ex.ToString(), "Full Error");
             }
             finally
             { 
@@ -90,8 +97,8 @@ namespace WinFormsApp2
                 var confirm = MessageBox.Show($"Delete student with ID {id}?", "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (confirm != DialogResult.Yes) return;
 
-                string connection = "server=localhost;database=school;user id=root; port=3306; password=root";
-                using (MySqlConnection conn = new MySqlConnection(connection))
+                //string connection = "server=localhost;database=school;user id=root; port=3306; password=root";
+                using (MySqlConnection conn = new MySqlConnection(connstring))
                 {
                     conn.Open();
                     string query = "DELETE FROM students WHERE id = @id";
@@ -117,8 +124,8 @@ namespace WinFormsApp2
 
         private void btn_Show_Click(object sender, EventArgs e)
         {
-            string connection = "server=localhost;database=school;user id=root; port=3307; password=; ";
-            MySqlConnection conn = new MySqlConnection(connection);
+           // string connection = "server=localhost;database=school;user id=root; port=3307; password=; ";
+            MySqlConnection conn = new MySqlConnection(connstring);
             try
             {
                 if (dgvStudents.Rows.Count == 0)
@@ -169,7 +176,7 @@ namespace WinFormsApp2
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show(ex.ToString(), "Full Error");
             }
         }
 
