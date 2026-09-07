@@ -2,7 +2,12 @@ C:\Gamshikaa\Yarl_IT\C-Sharp\WinFormsApp2\WinFormsApp2\obj\Debug\net10.0-windows
 C:\Gamshikaa\Yarl_IT\C-Sharp\WinFormsApp2\WinFormsApp2\obj\Debug\net10.0-windows\WinFormsApp2.database_connection.resources
 C:\Gamshikaa\Yarl_IT\C-Sharp\WinFormsApp2\WinFormsApp2\obj\Debug\net10.0-windows\WinFormsApp2.Form1.resources
 C:\Gamshikaa\Yarl_IT\C-Sharp\WinFormsApp2\WinFormsApp2\obj\Debug\net10.0-windows\WinFormsApp2.Form2.resources
+C:\Gamshikaa\Yarl_IT\C-Sharp\WinFormsApp2\WinFormsApp2\obj\Debug\net10.0-windows\WinFormsApp2.FrmAddGrade.resources
+C:\Gamshikaa\Yarl_IT\C-Sharp\WinFormsApp2\WinFormsApp2\obj\Debug\net10.0-windows\WinFormsApp2.frmAddStudent.resources
+C:\Gamshikaa\Yarl_IT\C-Sharp\WinFormsApp2\WinFormsApp2\obj\Debug\net10.0-windows\WinFormsApp2.FrmEditGrade.resources
 C:\Gamshikaa\Yarl_IT\C-Sharp\WinFormsApp2\WinFormsApp2\obj\Debug\net10.0-windows\WinFormsApp2.frmEditStudent.resources
+C:\Gamshikaa\Yarl_IT\C-Sharp\WinFormsApp2\WinFormsApp2\obj\Debug\net10.0-windows\WinFormsApp2.frmGrades.resources
+C:\Gamshikaa\Yarl_IT\C-Sharp\WinFormsApp2\WinFormsApp2\obj\Debug\net10.0-windows\WinFormsApp2.FrmShowGrades.resources
 C:\Gamshikaa\Yarl_IT\C-Sharp\WinFormsApp2\WinFormsApp2\obj\Debug\net10.0-windows\WinFormsApp2.frmShowStudent.resources
 C:\Gamshikaa\Yarl_IT\C-Sharp\WinFormsApp2\WinFormsApp2\obj\Debug\net10.0-windows\WinFormsApp2.FrmStudent.resources
 C:\Gamshikaa\Yarl_IT\C-Sharp\WinFormsApp2\WinFormsApp2\obj\Debug\net10.0-windows\WinFormsApp2.csproj.GenerateResource.cache

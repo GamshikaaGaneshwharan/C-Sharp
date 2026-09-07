@@ -40,11 +40,11 @@ namespace WinFormsApp2
                 MessageBox.Show("Error: " + ex.Message);
             }
             finally
-            {
+            { 
                 conn.Close();
             }
         }
-        private void button1_Click(object sender, EventArgs e)  
+        private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(cmbGr.SelectedValue.ToString());
         }
@@ -52,7 +52,7 @@ namespace WinFormsApp2
         private void button2_Click(object sender, EventArgs e)
         {
             cmbGr.SelectedValue = 15;
-        }
+        } 
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -66,6 +66,46 @@ namespace WinFormsApp2
             {
                 MessageBox.Show("An error occurred while retrieving the data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            }
+        }
+
+        // Handler for delete button added in Designer (button name: btn_delete)
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvStudents.CurrentRow == null)
+                {
+                    MessageBox.Show("No row selected to delete.");
+                    return;
+                }
+
+                string id = dgvStudents.CurrentRow.Cells["id"].Value?.ToString();
+                if (string.IsNullOrEmpty(id))
+                {
+                    MessageBox.Show("Selected row does not contain a valid id.");
+                    return;
+                }
+
+                var confirm = MessageBox.Show($"Delete student with ID {id}?", "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (confirm != DialogResult.Yes) return;
+
+                string connection = "server=localhost;database=school;user id=root; port=3306; password=root";
+                using (MySqlConnection conn = new MySqlConnection(connection))
+                {
+                    conn.Open();
+                    string query = "DELETE FROM students WHERE id = @id";
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+
+                // Refresh grid
+                btn_All_students_Click(this, EventArgs.Empty);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -130,6 +170,17 @@ namespace WinFormsApp2
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void btn_create_Click(object sender, EventArgs e)
+        {
+            // Open the Add Student form first
+            frmAddStudent addForm = new frmAddStudent();
+            if (addForm.ShowDialog() == DialogResult.OK)
+            {
+                // Refresh grid after a successful create
+                btn_All_students_Click(this, EventArgs.Empty);
             }
         }
     }

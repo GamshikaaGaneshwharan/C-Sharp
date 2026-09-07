@@ -10,6 +10,18 @@
     <Compile Update="Form2.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="FrmAddGrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmEditGrade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="frmGrades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FrmShowGrades.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="frmShowStudent.cs">
       <SubType>Form</SubType>
     </Compile>

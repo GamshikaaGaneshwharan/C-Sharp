@@ -12,25 +12,25 @@ using System.Xml.Linq;
 namespace WinFormsApp2
 {
 
-    public partial class frmEditStudent : Form
+    public partial class frmAddStudent : Form
     {
-        
+
 
 
 
 
         string studentId;
 
+
+
         // Parameterless constructor required by Designer and other callers
-        public frmEditStudent()
+        public frmAddStudent()
         {
             InitializeComponent();
         }
 
-       
-
         // Backward-compatible constructor used by callers that pass full student details
-        public frmEditStudent(string id, string firstName, string lastName, string gender, string address, string dateOfBirth, string nic, string birthCert, string tele, string medium, string admissionNumber)
+        public frmAddStudent(string id, string firstName, string lastName, string gender, string address, string dateOfBirth, string nic, string birthCert, string tele, string medium, string admissionNumber)
         {
             InitializeComponent();
             this.studentId = id;
@@ -103,6 +103,7 @@ namespace WinFormsApp2
             try
             {
                 conn.Open();
+
                 cmbMedium.Items.Clear();
                 cmbMedium.Items.Add("Tamil");
                 cmbMedium.Items.Add("English");
@@ -131,7 +132,7 @@ namespace WinFormsApp2
 
                 //-------------------------------Load Families into ComboBox----------------------------
 
-                string familyQuery = "SELECT id, family_name FROM families";
+                string familyQuery = "SELECT id FROM families";
 
                 MySqlDataAdapter familyAdapter =
                 new MySqlDataAdapter(familyQuery, conn);
@@ -140,8 +141,9 @@ namespace WinFormsApp2
                 familyAdapter.Fill(familyTable);
 
                 cmbFamily.DataSource = familyTable;
-                cmbFamily.DisplayMember = "family_name";
+                cmbFamily.DisplayMember = "id";
                 cmbFamily.ValueMember = "id";
+
 
 
                 //-------------------------------Load Student Data into Form Controls--------------------------------
@@ -256,11 +258,23 @@ namespace WinFormsApp2
         }
 
         private void label11_Click(object sender, EventArgs e)
-        { 
+        {
 
         }
 
-        private void btn_update_Click(object sender, EventArgs e)
+        private void btn_create_Click(object sender, EventArgs e)
+        {
+            // Open empty edit form for creating a new student
+            frmEditStudent f = new frmEditStudent();
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                // a student was created in the edit form, propagate success to caller
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private void btn_btn_Click(object sender, EventArgs e)
         {
             string connString = "Server=localhost;Database=school;Uid=root;Password=root;";
             using (MySqlConnection conn = new MySqlConnection(connString))
@@ -269,111 +283,60 @@ namespace WinFormsApp2
                 {
                     conn.Open();
 
-                    // If studentId is null or empty treat this as CREATE (INSERT)
-                    if (string.IsNullOrWhiteSpace(this.studentId))
+                    string updateQuery = @"UPDATE students SET first_name=@first, last_name=@last, nic_number=@nic, tele_number=@tel, admission_number=@admission, medium=@medium, grade_id=@gradeId, house_id=@houseId, family_id=@familyId, gender=@gender, date_of_birth=@dob WHERE id=@id";
+
+                    using (MySqlCommand cmd = new MySqlCommand(updateQuery, conn))
                     {
-                        string insertQuery = @"INSERT INTO students (first_name, last_name, nic_number, tele_number, admission_number, medium, grade_id, house_id, family_id, gender, date_of_birth) VALUES (@first, @last, @nic, @tel, @admission, @medium, @gradeId, @houseId, @familyId, @gender, @dob)";
+                        cmd.Parameters.AddWithValue("@first", txt_Fn.Text);
+                        cmd.Parameters.AddWithValue("@last", txt_Ln.Text);
+                        cmd.Parameters.AddWithValue("@nic", txtNIC.Text);
+                        cmd.Parameters.AddWithValue("@tel", txtTel.Text);
+                        cmd.Parameters.AddWithValue("@admission", txtAdmission.Text);
+                        cmd.Parameters.AddWithValue("@medium", cmbMedium.Text);
 
-                        using (MySqlCommand cmd = new MySqlCommand(insertQuery, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@first", txt_Fn.Text);
-                            cmd.Parameters.AddWithValue("@last", txt_Ln.Text);
-                            cmd.Parameters.AddWithValue("@nic", txtNIC.Text);
-                            cmd.Parameters.AddWithValue("@tel", txtTel.Text);
-                            cmd.Parameters.AddWithValue("@admission", txtAdmission.Text);
-                            cmd.Parameters.AddWithValue("@medium", cmbMedium.Text);
+                        if (cmbGradeName.SelectedValue != null && int.TryParse(cmbGradeName.SelectedValue.ToString(), out int gid))
+                            cmd.Parameters.AddWithValue("@gradeId", gid);
+                        else
+                            cmd.Parameters.AddWithValue("@gradeId", DBNull.Value);
 
-                            if (cmbGradeName.SelectedValue != null && int.TryParse(cmbGradeName.SelectedValue.ToString(), out int gid))
-                                cmd.Parameters.AddWithValue("@gradeId", gid);
-                            else
-                                cmd.Parameters.AddWithValue("@gradeId", DBNull.Value);
+                        if (cmbHouse.SelectedValue != null && int.TryParse(cmbHouse.SelectedValue.ToString(), out int hid))
+                            cmd.Parameters.AddWithValue("@houseId", hid);
+                        else
+                            cmd.Parameters.AddWithValue("@houseId", DBNull.Value);
 
-                            if (cmbHouse.SelectedValue != null && int.TryParse(cmbHouse.SelectedValue.ToString(), out int hid))
-                                cmd.Parameters.AddWithValue("@houseId", hid);
-                            else
-                                cmd.Parameters.AddWithValue("@houseId", DBNull.Value);
+                        if (cmbFamily.SelectedValue != null && int.TryParse(cmbFamily.SelectedValue.ToString(), out int fid))
+                            cmd.Parameters.AddWithValue("@familyId", fid);
+                        else
+                            cmd.Parameters.AddWithValue("@familyId", DBNull.Value);
 
-                            if (cmbFamily.SelectedValue != null && int.TryParse(cmbFamily.SelectedValue.ToString(), out int fid))
-                                cmd.Parameters.AddWithValue("@familyId", fid);
-                            else
-                                cmd.Parameters.AddWithValue("@familyId", DBNull.Value);
+                        string gender = rdoM.Checked ? "M" : (rdoF.Checked ? "F" : null);
+                        if (gender != null)
+                            cmd.Parameters.AddWithValue("@gender", gender);
+                        else
+                            cmd.Parameters.AddWithValue("@gender", DBNull.Value);
 
-                            string gender = rdoM.Checked ? "M" : (rdoF.Checked ? "F" : null);
-                            if (gender != null)
-                                cmd.Parameters.AddWithValue("@gender", gender);
-                            else
-                                cmd.Parameters.AddWithValue("@gender", DBNull.Value);
+                        if (dtpDOB.Value != DateTime.MinValue)
+                            cmd.Parameters.AddWithValue("@dob", dtpDOB.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@dob", DBNull.Value);
 
-                            if (dtpDOB.Value != DateTime.MinValue)
-                                cmd.Parameters.AddWithValue("@dob", dtpDOB.Value);
-                            else
-                                cmd.Parameters.AddWithValue("@dob", DBNull.Value);
+                        cmd.Parameters.AddWithValue("@id", this.studentId);
 
-                            int inserted = cmd.ExecuteNonQuery();
-                            MessageBox.Show($"{inserted} row(s) inserted successfully.", "Create Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // signal success back to caller so it can refresh grid
-                            this.DialogResult = DialogResult.OK;
-                            this.Close();
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        string updateQuery = @"UPDATE students SET first_name=@first, last_name=@last, nic_number=@nic, tele_number=@tel, admission_number=@admission, medium=@medium, grade_id=@gradeId, house_id=@houseId, family_id=@familyId, gender=@gender, date_of_birth=@dob WHERE id=@id";
-
-                        using (MySqlCommand cmd = new MySqlCommand(updateQuery, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@first", txt_Fn.Text);
-                            cmd.Parameters.AddWithValue("@last", txt_Ln.Text);
-                            cmd.Parameters.AddWithValue("@nic", txtNIC.Text);
-                            cmd.Parameters.AddWithValue("@tel", txtTel.Text);
-                            cmd.Parameters.AddWithValue("@admission", txtAdmission.Text);
-                            cmd.Parameters.AddWithValue("@medium", cmbMedium.Text);
-
-                            if (cmbGradeName.SelectedValue != null && int.TryParse(cmbGradeName.SelectedValue.ToString(), out int gid))
-                                cmd.Parameters.AddWithValue("@gradeId", gid);
-                            else
-                                cmd.Parameters.AddWithValue("@gradeId", DBNull.Value);
-
-                            if (cmbHouse.SelectedValue != null && int.TryParse(cmbHouse.SelectedValue.ToString(), out int hid))
-                                cmd.Parameters.AddWithValue("@houseId", hid);
-                            else
-                                cmd.Parameters.AddWithValue("@houseId", DBNull.Value);
-
-                            if (cmbFamily.SelectedValue != null && int.TryParse(cmbFamily.SelectedValue.ToString(), out int fid))
-                                cmd.Parameters.AddWithValue("@familyId", fid);
-                            else
-                                cmd.Parameters.AddWithValue("@familyId", DBNull.Value);
-
-                            string gender = rdoM.Checked ? "M" : (rdoF.Checked ? "F" : null);
-                            if (gender != null)
-                                cmd.Parameters.AddWithValue("@gender", gender);
-                            else
-                                cmd.Parameters.AddWithValue("@gender", DBNull.Value);
-
-                            if (dtpDOB.Value != DateTime.MinValue)
-                                cmd.Parameters.AddWithValue("@dob", dtpDOB.Value);
-                            else
-                                cmd.Parameters.AddWithValue("@dob", DBNull.Value);
-
-                            cmd.Parameters.AddWithValue("@id", this.studentId);
-
-                            int affectedRows = cmd.ExecuteNonQuery();
-                            MessageBox.Show($"{affectedRows} rows updated successfully.", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            // indicate update success to caller
-                            this.DialogResult = DialogResult.OK;
-                        }
+                        int affectedRows = cmd.ExecuteNonQuery();
+                        MessageBox.Show($"{affectedRows} rows updated successfully.", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An error occured while saving to the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("An error occured while updating the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
+        private void cmbMedium_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
