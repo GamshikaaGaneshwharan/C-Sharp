@@ -16,6 +16,17 @@ namespace WinFormsApp2
             InitializeComponent();
         }
 
+        private void pnl_gradeColour_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog dlg = new ColorDialog())
+            {
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    pnl_gradeColour.BackColor = dlg.Color;
+                }
+            }
+        }
+
         private void FrmAddGrade_Load(object sender, EventArgs e)
         {
             string connection = "server=localhost;database=school;user id=root;port=3306;password=root";
@@ -26,49 +37,11 @@ namespace WinFormsApp2
             {
                 conn.Open();
 
-                // Grade Group
-                string groupQuery = "SELECT DISTINCT grade_group FROM grades";
-
-                MySqlCommand groupCmd = new MySqlCommand(groupQuery, conn);
-
-                MySqlDataReader groupReader = groupCmd.ExecuteReader();
-
-                while (groupReader.Read())
-                {
-                    cmb_gradeGroup.Items.Add(groupReader["grade_group"].ToString());
-                }
-
-                groupReader.Close();
-
-
-                // Grade Order
-                string orderQuery = "SELECT DISTINCT grade_order FROM grades";
-
-                MySqlCommand orderCmd = new MySqlCommand(orderQuery, conn);
-
-                MySqlDataReader orderReader = orderCmd.ExecuteReader();
-
-                while (orderReader.Read())
-                {
-                    cmb_gradeOrder.Items.Add(orderReader["grade_order"].ToString());
-                }
-
-                orderReader.Close();
+                // Grade Group and Grade Order are textboxes now; users can type values directly.
 
 
                 // Colour
-                string colourQuery = "SELECT DISTINCT colour FROM grades";
-
-                MySqlCommand colourCmd = new MySqlCommand(colourQuery, conn);
-
-                MySqlDataReader colourReader = colourCmd.ExecuteReader();
-
-                while (colourReader.Read())
-                {
-                    cmb_gradeColour.Items.Add(colourReader["colour"].ToString());
-                }
-
-                colourReader.Close();
+                // Colour: replaced with colour panel UI; no longer populate a ComboBox
             }
             catch (Exception ex)
             {
@@ -97,18 +70,19 @@ namespace WinFormsApp2
                 MySqlCommand cmd = new MySqlCommand(query, conn);
 
                 cmd.Parameters.AddWithValue("@grade_name", txt_gradeName.Text);
-                cmd.Parameters.AddWithValue("@grade_group", cmb_gradeGroup.Text);
-                cmd.Parameters.AddWithValue("@grade_order", cmb_gradeOrder.Text);
-                cmd.Parameters.AddWithValue("@colour", cmb_gradeColour.Text);
+                cmd.Parameters.AddWithValue("@grade_group", txt_gradeGroup.Text);
+                cmd.Parameters.AddWithValue("@grade_order", txt_gradeOrder.Text);
+                cmd.Parameters.AddWithValue("@colour", ColorTranslator.ToHtml(pnl_gradeColour.BackColor));
 
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Grade saved successfully!");
 
                 txt_gradeName.Clear();
-                cmb_gradeGroup.SelectedIndex = -1;
-                cmb_gradeOrder.SelectedIndex = -1;
-                cmb_gradeColour.SelectedIndex = -1;
+                txt_gradeGroup.Text = string.Empty;
+                txt_gradeOrder.Text = string.Empty;
+                // reset colour panel to default
+                pnl_gradeColour.BackColor = SystemColors.Control;
             }
             catch (Exception ex)
             {

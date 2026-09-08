@@ -1,21 +1,35 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 
 namespace WinFormsApp2
 {
     public partial class FrmEditGrade : Form
     {
+        //string connstring = ConfigurationManager.ConnectionStrings["MyDbConnection"]?.ConnectionString ?? string.Empty;
+
         string gradeId;
         public FrmEditGrade()
         {
             InitializeComponent();
             gradeId = "";
+        }
+
+        private void pnl_gradeColour_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog dlg = new ColorDialog())
+            {
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    pnl_gradeColour.BackColor = dlg.Color;
+                }
+            }
         }
 
         public FrmEditGrade(string id) : this()
@@ -47,7 +61,7 @@ namespace WinFormsApp2
 
                 if (reader.Read())
                 {
-                    txt_id.Text = reader["id"].ToString();
+                    //txt_id.Text = reader["id"].ToString();
                     txt_gradeName.Text = reader["grade_name"].ToString();
 
                     selectedGroup = reader["grade_group"].ToString();
@@ -57,65 +71,18 @@ namespace WinFormsApp2
 
                 reader.Close();
 
-
-                // Grade Group
-                string groupQuery = "SELECT DISTINCT grade_group FROM grades";
-
-                MySqlCommand groupCmd = new MySqlCommand(groupQuery, conn);
-                MySqlDataReader groupReader = groupCmd.ExecuteReader();
-
-                cmb_gradeGroup.Items.Clear();
-
-                while (groupReader.Read())
+                // Grade Group and Grade Order are TextBoxes now: set values directly
+                txt_gradeGroup.Text = selectedGroup;
+                txt_gradeOrder.Text = selectedOrder;
+                // set panel color from stored value if available
+                if (!string.IsNullOrEmpty(selectedColour))
                 {
-                    cmb_gradeGroup.Items.Add(
-                        groupReader["grade_group"].ToString()
-                    );
+                    try
+                    {
+                        pnl_gradeColour.BackColor = ColorTranslator.FromHtml(selectedColour);
+                    }
+                    catch { /* ignore parse errors and leave default */ }
                 }
-
-                groupReader.Close();
-
-
-                // Grade Order
-                string orderQuery = "SELECT DISTINCT grade_order FROM grades";
-
-                MySqlCommand orderCmd = new MySqlCommand(orderQuery, conn);
-                MySqlDataReader orderReader = orderCmd.ExecuteReader();
-
-                cmb_gradeOrder.Items.Clear();
-
-                while (orderReader.Read())
-                {
-                    cmb_gradeOrder.Items.Add(
-                        orderReader["grade_order"].ToString()
-                    );
-                }
-
-                orderReader.Close();
-
-
-                // Colour
-                string colourQuery = "SELECT DISTINCT colour FROM grades";
-
-                MySqlCommand colourCmd = new MySqlCommand(colourQuery, conn);
-                MySqlDataReader colourReader = colourCmd.ExecuteReader();
-
-                cmb_gradeColour.Items.Clear();
-
-                while (colourReader.Read())
-                {
-                    cmb_gradeColour.Items.Add(
-                        colourReader["colour"].ToString()
-                    );
-                }
-
-                colourReader.Close();
-
-
-                // Select current values
-                cmb_gradeGroup.Text = selectedGroup;
-                cmb_gradeOrder.Text = selectedOrder;
-                cmb_gradeColour.Text = selectedColour;
             }
             catch (Exception ex)
             {
@@ -143,10 +110,10 @@ namespace WinFormsApp2
                 MySqlCommand cmd = new MySqlCommand(query, conn);
 
                 cmd.Parameters.AddWithValue("@grade_name", txt_gradeName.Text);
-                cmd.Parameters.AddWithValue("@grade_group", cmb_gradeGroup.Text);
-                cmd.Parameters.AddWithValue("@grade_order", cmb_gradeOrder.Text);
-                cmd.Parameters.AddWithValue("@colour", cmb_gradeColour.Text);
-                cmd.Parameters.AddWithValue("@id", txt_id.Text);
+                cmd.Parameters.AddWithValue("@grade_group", txt_gradeGroup.Text);
+                cmd.Parameters.AddWithValue("@grade_order", txt_gradeOrder.Text);
+                cmd.Parameters.AddWithValue("@colour", ColorTranslator.ToHtml(pnl_gradeColour.BackColor));
+              //  cmd.Parameters.AddWithValue("@id", txt_id.Text);
 
                 int result = cmd.ExecuteNonQuery();
 

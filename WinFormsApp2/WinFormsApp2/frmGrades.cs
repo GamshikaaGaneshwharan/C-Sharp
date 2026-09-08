@@ -60,6 +60,14 @@ namespace WinFormsApp2
                 }
 
                 string gradeId = dgvGrades.CurrentRow.Cells["id"].Value.ToString();
+                string colour = dgvGrades.CurrentRow.Cells["colour"].Value.ToString();
+                string gradeGroup = dgvGrades.CurrentRow.Cells["grade_group"].Value.ToString();
+                string gradeOrder = dgvGrades.CurrentRow.Cells["grade_order"].Value.ToString();
+
+                txt_gradeGroup.Text = gradeGroup;
+                txt_gradeOrder.Text = gradeOrder;
+
+                panel1.BackColor = ColorTranslator.FromHtml(colour);
 
                 FrmShowGrades showForm = new FrmShowGrades(gradeId);
 
@@ -73,66 +81,37 @@ namespace WinFormsApp2
 
         private void frmGrades_Load(object sender, EventArgs e)
         {
+
             string connection = "server=localhost;database=school;user id=root;port=3306;password=root";
 
-            MySqlConnection conn = new MySqlConnection(connection);
-
-            try
+            using (MySqlConnection conn = new MySqlConnection(connection))
             {
-                conn.Open();
-
-                //grade_group combo box
-
-                string query = "SELECT DISTINCT grade_group FROM grades";
-
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-
-                MySqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                try
                 {
-                    cmb_gradeGroup.Items.Add(reader["grade_group"].ToString());
+                    conn.Open();
+
+                    string query = "SELECT * FROM grades LIMIT 1";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            txt_gradeGroup.Text = reader["grade_group"].ToString();
+                            txt_gradeOrder.Text = reader["grade_order"].ToString();
+
+                            string colour = reader["colour"].ToString();
+
+                            panel1.BackColor = ColorTranslator.FromHtml(colour);
+                        }
+                    }
                 }
-
-                reader.Close();
-
-                //grade_order combo box
-                string orderQuery = "SELECT DISTINCT grade_order FROM grades";
-
-                MySqlCommand orderCmd = new MySqlCommand(orderQuery, conn);
-
-                MySqlDataReader orderReader = orderCmd.ExecuteReader();
-
-                while (orderReader.Read())
+                catch (Exception ex)
                 {
-                    cmb_gradeOrder.Items.Add(orderReader["grade_order"].ToString());
+                    MessageBox.Show("Error: " + ex.Message);
                 }
-
-                orderReader.Close();
-
-                // colour
-                string colourQuery = "SELECT DISTINCT colour FROM grades";
-
-                MySqlCommand colourCmd = new MySqlCommand(colourQuery, conn);
-
-                MySqlDataReader colourReader = colourCmd.ExecuteReader();
-
-                while (colourReader.Read())
-                {
-                    cmb_gradeColour.Items.Add(colourReader["colour"].ToString());
-                }
-
-                colourReader.Close();
-
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
+
         }
 
         private void btn_create_Click(object sender, EventArgs e)
@@ -178,7 +157,55 @@ namespace WinFormsApp2
             if (result == DialogResult.No)
             {
                 return;
-            }    
+            }
+
+            string connection = "server=localhost;database=school;user id=root;port=3306;password=root";
+
+            using (MySqlConnection conn = new MySqlConnection(connection))
+            {
+                try
+                {
+                    conn.Open();
+
+                    string query = "DELETE FROM grades WHERE id = @id";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", gradeId);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Grade deleted successfully.");
+
+                            // Refresh DataGridView
+                            btn_AllGrades_Click(null, null);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Grade was not found.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog())
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    panel1.BackColor = colorDialog.Color;
+                }
+            }
+
 
         }
     }

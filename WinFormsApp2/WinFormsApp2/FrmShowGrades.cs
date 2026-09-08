@@ -40,54 +40,22 @@ namespace WinFormsApp2
                 {
                     txt_id.Text = reader["id"].ToString();
                     txt_gradeName.Text = reader["grade_name"].ToString();
-                    cmb_gradeGroup.Text = reader["grade_group"].ToString();
-                    cmb_gradeOrder.Text = reader["grade_order"].ToString();
-                    cmb_gradeColour.Text = reader["colour"].ToString();
+                    txt_gradeGroup.Text = reader["grade_group"].ToString();
+                    txt_gradeOrder.Text = reader["grade_order"].ToString();
+                    var c = reader["colour"].ToString();
+                    if (!string.IsNullOrEmpty(c))
+                    {
+                        try
+                        {
+                            pnl_gradeColour.BackColor = ColorTranslator.FromHtml(c);
+                        }
+                        catch { }
+                    }
                 }
 
                 reader.Close();
 
-                // Grade Group
-                string groupQuery = "SELECT DISTINCT grade_group FROM grades";
-
-                MySqlCommand groupCmd = new MySqlCommand(groupQuery, conn);
-
-                MySqlDataReader groupReader = groupCmd.ExecuteReader();
-
-                while (groupReader.Read())
-                {
-                    cmb_gradeGroup.Items.Add(groupReader["grade_group"].ToString());
-                }
-
-                groupReader.Close();
-
-                // Grade Order
-                string orderQuery = "SELECT DISTINCT grade_order FROM grades";
-
-                MySqlCommand orderCmd = new MySqlCommand(orderQuery, conn);
-
-                MySqlDataReader orderReader = orderCmd.ExecuteReader();
-
-                while (orderReader.Read())
-                {
-                    cmb_gradeOrder.Items.Add(orderReader["grade_order"].ToString());
-                }
-
-                orderReader.Close();
-
-                // Colour
-                string colourQuery = "SELECT DISTINCT colour FROM grades";
-
-                MySqlCommand colourCmd = new MySqlCommand(colourQuery, conn);
-
-                MySqlDataReader colourReader = colourCmd.ExecuteReader();
-
-                while (colourReader.Read())
-                {
-                    cmb_gradeColour.Items.Add(colourReader["colour"].ToString());
-                }
-
-                colourReader.Close();
+                // Grade Group and Grade Order are TextBoxes now; no population required
 
             }
             catch (Exception ex)

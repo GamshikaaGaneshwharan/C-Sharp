@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cmb_gradeColour = new ComboBox();
-            cmb_gradeOrder = new ComboBox();
+            pnl_gradeColour = new Panel();
+            txt_gradeOrder = new TextBox();
             txt_gradeName = new TextBox();
-            txt_id = new TextBox();
             label_colour = new Label();
             label_gradeOrder = new Label();
             label_gradeGroup = new Label();
             label_gradeName = new Label();
-            label_ID = new Label();
             btn_add = new Button();
-            cmb_gradeGroup = new ComboBox();
+            txt_gradeGroup = new TextBox();
             SuspendLayout();
             // 
-            // cmb_gradeColour
+            // pnl_gradeColour
             // 
-            cmb_gradeColour.FormattingEnabled = true;
-            cmb_gradeColour.Location = new Point(159, 289);
-            cmb_gradeColour.Name = "cmb_gradeColour";
-            cmb_gradeColour.Size = new Size(121, 23);
-            cmb_gradeColour.TabIndex = 14;
+            pnl_gradeColour.BackColor = SystemColors.Control;
+            pnl_gradeColour.BorderStyle = BorderStyle.FixedSingle;
+            pnl_gradeColour.Cursor = Cursors.Hand;
+            pnl_gradeColour.Location = new Point(159, 289);
+            pnl_gradeColour.Name = "pnl_gradeColour";
+            pnl_gradeColour.Size = new Size(121, 23);
+            pnl_gradeColour.TabIndex = 14;
+            pnl_gradeColour.Click += pnl_gradeColour_Click;
             // 
-            // cmb_gradeOrder
+            // txt_gradeOrder
             // 
-            cmb_gradeOrder.FormattingEnabled = true;
-            cmb_gradeOrder.Location = new Point(159, 231);
-            cmb_gradeOrder.Name = "cmb_gradeOrder";
-            cmb_gradeOrder.Size = new Size(121, 23);
-            cmb_gradeOrder.TabIndex = 15;
+            txt_gradeOrder.Location = new Point(159, 231);
+            txt_gradeOrder.Name = "txt_gradeOrder";
+            txt_gradeOrder.Size = new Size(121, 23);
+            txt_gradeOrder.TabIndex = 15;
             // 
             // txt_gradeName
             // 
@@ -63,13 +63,6 @@
             txt_gradeName.Name = "txt_gradeName";
             txt_gradeName.Size = new Size(121, 23);
             txt_gradeName.TabIndex = 12;
-            // 
-            // txt_id
-            // 
-            txt_id.Location = new Point(159, 63);
-            txt_id.Name = "txt_id";
-            txt_id.Size = new Size(121, 23);
-            txt_id.TabIndex = 13;
             // 
             // label_colour
             // 
@@ -107,15 +100,6 @@
             label_gradeName.TabIndex = 8;
             label_gradeName.Text = "Grade Name";
             // 
-            // label_ID
-            // 
-            label_ID.AutoSize = true;
-            label_ID.Location = new Point(63, 63);
-            label_ID.Name = "label_ID";
-            label_ID.Size = new Size(18, 15);
-            label_ID.TabIndex = 7;
-            label_ID.Text = "ID";
-            // 
             // btn_add
             // 
             btn_add.Location = new Point(205, 360);
@@ -126,30 +110,27 @@
             btn_add.UseVisualStyleBackColor = true;
             btn_add.Click += btn_add_Click;
             // 
-            // cmb_gradeGroup
+            // txt_gradeGroup
             // 
-            cmb_gradeGroup.FormattingEnabled = true;
-            cmb_gradeGroup.Location = new Point(159, 177);
-            cmb_gradeGroup.Name = "cmb_gradeGroup";
-            cmb_gradeGroup.Size = new Size(121, 23);
-            cmb_gradeGroup.TabIndex = 16;
+            txt_gradeGroup.Location = new Point(159, 177);
+            txt_gradeGroup.Name = "txt_gradeGroup";
+            txt_gradeGroup.Size = new Size(121, 23);
+            txt_gradeGroup.TabIndex = 16;
             // 
             // FrmAddGrade
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(338, 458);
+            ClientSize = new Size(338, 388);
             Controls.Add(btn_add);
-            Controls.Add(cmb_gradeColour);
-            Controls.Add(cmb_gradeOrder);
-            Controls.Add(cmb_gradeGroup);
+            Controls.Add(pnl_gradeColour);
+            Controls.Add(txt_gradeOrder);
+            Controls.Add(txt_gradeGroup);
             Controls.Add(txt_gradeName);
-            Controls.Add(txt_id);
             Controls.Add(label_colour);
             Controls.Add(label_gradeOrder);
             Controls.Add(label_gradeGroup);
             Controls.Add(label_gradeName);
-            Controls.Add(label_ID);
             Name = "FrmAddGrade";
             Text = "FrmAddGrade";
             Load += FrmAddGrade_Load;
@@ -159,16 +140,14 @@
 
         #endregion
 
-        private ComboBox cmb_gradeColour;
-        private ComboBox cmb_gradeOrder;
+        private Panel pnl_gradeColour;
+        private TextBox txt_gradeOrder;
         private TextBox txt_gradeName;
-        private TextBox txt_id;
         private Label label_colour;
         private Label label_gradeOrder;
         private Label label_gradeGroup;
         private Label label_gradeName;
-        private Label label_ID;
         private Button btn_add;
-        private ComboBox cmb_gradeGroup;
+        private TextBox txt_gradeGroup;
     }
 }

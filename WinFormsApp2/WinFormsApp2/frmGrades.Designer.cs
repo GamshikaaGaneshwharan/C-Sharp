@@ -28,26 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             btn_AllGrades = new Button();
             btn_showGrades = new Button();
             btn_edit = new Button();
             btn_create = new Button();
             btn_delete = new Button();
             dgvGrades = new DataGridView();
-            label_id = new Label();
             label_gradeName = new Label();
             label_gradeGroup = new Label();
             label_gradeOrder = new Label();
             label5 = new Label();
-            txt_id = new TextBox();
             txt_GradeName = new TextBox();
-            cmb_gradeGroup = new ComboBox();
-            cmb_gradeOrder = new ComboBox();
-            cmb_gradeColour = new ComboBox();
-            bindingSource1 = new BindingSource(components);
+            panel1 = new Panel();
+            txt_gradeGroup = new TextBox();
+            txt_gradeOrder = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvGrades).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // btn_AllGrades
@@ -108,15 +103,6 @@
             dgvGrades.Size = new Size(366, 432);
             dgvGrades.TabIndex = 6;
             // 
-            // label_id
-            // 
-            label_id.AutoSize = true;
-            label_id.Location = new Point(446, 111);
-            label_id.Name = "label_id";
-            label_id.Size = new Size(18, 15);
-            label_id.TabIndex = 7;
-            label_id.Text = "ID";
-            // 
             // label_gradeName
             // 
             label_gradeName.AutoSize = true;
@@ -153,13 +139,6 @@
             label5.TabIndex = 7;
             label5.Text = "Colour";
             // 
-            // txt_id
-            // 
-            txt_id.Location = new Point(529, 111);
-            txt_id.Name = "txt_id";
-            txt_id.Size = new Size(121, 23);
-            txt_id.TabIndex = 8;
-            // 
             // txt_GradeName
             // 
             txt_GradeName.Location = new Point(529, 151);
@@ -167,45 +146,40 @@
             txt_GradeName.Size = new Size(121, 23);
             txt_GradeName.TabIndex = 9;
             // 
-            // cmb_gradeGroup
+            // panel1
             // 
-            cmb_gradeGroup.FormattingEnabled = true;
-            cmb_gradeGroup.Location = new Point(529, 192);
-            cmb_gradeGroup.Name = "cmb_gradeGroup";
-            cmb_gradeGroup.Size = new Size(121, 23);
-            cmb_gradeGroup.TabIndex = 10;
+            panel1.Location = new Point(529, 278);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(61, 36);
+            panel1.TabIndex = 13;
             // 
-            // cmb_gradeOrder
+            // txt_gradeGroup
             // 
-            cmb_gradeOrder.FormattingEnabled = true;
-            cmb_gradeOrder.Location = new Point(529, 235);
-            cmb_gradeOrder.Name = "cmb_gradeOrder";
-            cmb_gradeOrder.Size = new Size(121, 23);
-            cmb_gradeOrder.TabIndex = 11;
+            txt_gradeGroup.Location = new Point(529, 189);
+            txt_gradeGroup.Name = "txt_gradeGroup";
+            txt_gradeGroup.Size = new Size(121, 23);
+            txt_gradeGroup.TabIndex = 9;
             // 
-            // cmb_gradeColour
+            // txt_gradeOrder
             // 
-            cmb_gradeColour.FormattingEnabled = true;
-            cmb_gradeColour.Location = new Point(529, 275);
-            cmb_gradeColour.Name = "cmb_gradeColour";
-            cmb_gradeColour.Size = new Size(121, 23);
-            cmb_gradeColour.TabIndex = 12;
+            txt_gradeOrder.Location = new Point(529, 235);
+            txt_gradeOrder.Name = "txt_gradeOrder";
+            txt_gradeOrder.Size = new Size(121, 23);
+            txt_gradeOrder.TabIndex = 9;
             // 
             // frmGrades
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(689, 559);
-            Controls.Add(cmb_gradeColour);
-            Controls.Add(cmb_gradeOrder);
-            Controls.Add(cmb_gradeGroup);
+            Controls.Add(panel1);
+            Controls.Add(txt_gradeOrder);
+            Controls.Add(txt_gradeGroup);
             Controls.Add(txt_GradeName);
-            Controls.Add(txt_id);
             Controls.Add(label5);
             Controls.Add(label_gradeOrder);
             Controls.Add(label_gradeGroup);
             Controls.Add(label_gradeName);
-            Controls.Add(label_id);
             Controls.Add(dgvGrades);
             Controls.Add(btn_delete);
             Controls.Add(btn_create);
@@ -216,7 +190,6 @@
             Text = "frmGrades";
             Load += frmGrades_Load;
             ((System.ComponentModel.ISupportInitialize)dgvGrades).EndInit();
-            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -228,16 +201,13 @@
         private Button btn_create;
         private Button btn_delete;
         private DataGridView dgvGrades;
-        private Label label_id;
         private Label label_gradeName;
         private Label label_gradeGroup;
         private Label label_gradeOrder;
         private Label label5;
-        private TextBox txt_id;
         private TextBox txt_GradeName;
-        private ComboBox cmb_gradeGroup;
-        private ComboBox cmb_gradeOrder;
-        private ComboBox cmb_gradeColour;
-        private BindingSource bindingSource1;
+        private Panel panel1;
+        private TextBox txt_gradeGroup;
+        private TextBox txt_gradeOrder;
     }
 }

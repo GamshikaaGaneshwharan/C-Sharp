@@ -35,9 +35,9 @@
             label_colour = new Label();
             txt_id = new TextBox();
             txt_gradeName = new TextBox();
-            cmb_gradeGroup = new ComboBox();
-            cmb_gradeOrder = new ComboBox();
-            cmb_gradeColour = new ComboBox();
+            txt_gradeGroup = new TextBox();
+            txt_gradeOrder = new TextBox();
+            pnl_gradeColour = new Panel();
             SuspendLayout();
             // 
             // label_ID
@@ -99,38 +99,37 @@
             txt_gradeName.Size = new Size(121, 23);
             txt_gradeName.TabIndex = 5;
             // 
-            // cmb_gradeGroup
+            // txt_gradeGroup
             // 
-            cmb_gradeGroup.FormattingEnabled = true;
-            cmb_gradeGroup.Location = new Point(163, 159);
-            cmb_gradeGroup.Name = "cmb_gradeGroup";
-            cmb_gradeGroup.Size = new Size(121, 23);
-            cmb_gradeGroup.TabIndex = 6;
+            txt_gradeGroup.Location = new Point(163, 159);
+            txt_gradeGroup.Name = "txt_gradeGroup";
+            txt_gradeGroup.Size = new Size(121, 23);
+            txt_gradeGroup.TabIndex = 6;
             // 
-            // cmb_gradeOrder
+            // txt_gradeOrder
             // 
-            cmb_gradeOrder.FormattingEnabled = true;
-            cmb_gradeOrder.Location = new Point(163, 213);
-            cmb_gradeOrder.Name = "cmb_gradeOrder";
-            cmb_gradeOrder.Size = new Size(121, 23);
-            cmb_gradeOrder.TabIndex = 6;
+            txt_gradeOrder.Location = new Point(163, 213);
+            txt_gradeOrder.Name = "txt_gradeOrder";
+            txt_gradeOrder.Size = new Size(121, 23);
+            txt_gradeOrder.TabIndex = 6;
             // 
-            // cmb_gradeColour
+            // pnl_gradeColour
             // 
-            cmb_gradeColour.FormattingEnabled = true;
-            cmb_gradeColour.Location = new Point(163, 271);
-            cmb_gradeColour.Name = "cmb_gradeColour";
-            cmb_gradeColour.Size = new Size(121, 23);
-            cmb_gradeColour.TabIndex = 6;
+            pnl_gradeColour.Location = new Point(163, 271);
+            pnl_gradeColour.Name = "pnl_gradeColour";
+            pnl_gradeColour.Size = new Size(121, 23);
+            pnl_gradeColour.TabIndex = 6;
+            pnl_gradeColour.BackColor = SystemColors.Control;
+            pnl_gradeColour.BorderStyle = BorderStyle.FixedSingle;
             // 
             // FrmShowGrades
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(370, 450);
-            Controls.Add(cmb_gradeColour);
-            Controls.Add(cmb_gradeOrder);
-            Controls.Add(cmb_gradeGroup);
+            Controls.Add(pnl_gradeColour);
+            Controls.Add(txt_gradeOrder);
+            Controls.Add(txt_gradeGroup);
             Controls.Add(txt_gradeName);
             Controls.Add(txt_id);
             Controls.Add(label_colour);
@@ -154,8 +153,8 @@
         private Label label_colour;
         private TextBox txt_id;
         private TextBox txt_gradeName;
-        private ComboBox cmb_gradeGroup;
-        private ComboBox cmb_gradeOrder;
-        private ComboBox cmb_gradeColour;
+        private TextBox txt_gradeGroup;
+        private TextBox txt_gradeOrder;
+        private Panel pnl_gradeColour;
     }
 }
