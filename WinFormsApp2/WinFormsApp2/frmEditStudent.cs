@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Text;
@@ -14,7 +15,16 @@ namespace WinFormsApp2
 
     public partial class frmEditStudent : Form
     {
-        
+        string connstring = ConfigurationManager.ConnectionStrings["MyDbConnection"]?.ConnectionString ?? string.Empty;
+        public frmEditStudent()
+        {
+            InitializeComponent();
+            if (string.IsNullOrEmpty(connstring))
+            {
+                MessageBox.Show("Database connection string is not configured. Please check your app.config.", "Configuration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+        }
 
 
 

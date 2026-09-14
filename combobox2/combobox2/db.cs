@@ -18,7 +18,7 @@ namespace combobox2
 
         private void btn1_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=localhost;Database=school_db;Uid=root;Pwd=root";
+            if (!WinFormsApp2.Config.TryGetConnectionString(out var connectionString, this)) return;
             MySqlConnection connection = new MySqlConnection(connectionString);
             try
             {
@@ -38,7 +38,7 @@ namespace combobox2
 
         private void btn2_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;";
+            if (!WinFormsApp2.Config.TryGetConnectionString(out var connectionString, this)) return;
             MySqlConnection connection = new MySqlConnection(connectionString);
 
             try

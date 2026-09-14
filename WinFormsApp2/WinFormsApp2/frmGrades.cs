@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Text;
@@ -11,40 +12,44 @@ namespace WinFormsApp2
 {
     public partial class frmGrades : Form
     {
+
+        string connstring = ConfigurationManager.ConnectionStrings["MyDbConnection"]?.ConnectionString ?? string.Empty;
         public frmGrades()
         {
             InitializeComponent();
+            if (string.IsNullOrEmpty(connstring))
+            {
+                MessageBox.Show("Database connection string is not configured. Please check your app.config.", "Configuration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
         }
 
         private void btn_AllGrades_Click(object sender, EventArgs e)
         {
-            string connection = "server=localhost;database=school;user id=root;port=3306;password=root";
-
-            MySqlConnection conn = new MySqlConnection(connection);
+            if (!Config.TryGetConnectionString(out var connection, this)) return;
 
             try
             {
-                conn.Open();
+                using (MySqlConnection conn = new MySqlConnection(connection))
+                {
+                    conn.Open();
 
-                string query = "SELECT * FROM grades";
+                    string query = "SELECT * FROM grades";
 
-                MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
 
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
 
-                DataTable dt = new DataTable();
+                    DataTable dt = new DataTable();
 
-                adapter.Fill(dt);
+                    adapter.Fill(dt);
 
-                dgvGrades.DataSource = dt;
+                    dgvGrades.DataSource = dt;
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
             }
         }
 
@@ -82,11 +87,11 @@ namespace WinFormsApp2
         private void frmGrades_Load(object sender, EventArgs e)
         {
 
-            string connection = "server=localhost;database=school;user id=root;port=3306;password=root";
+            if (!Config.TryGetConnectionString(out var connection, this)) return;
 
-            using (MySqlConnection conn = new MySqlConnection(connection))
+            try
             {
-                try
+                using (MySqlConnection conn = new MySqlConnection(connection))
                 {
                     conn.Open();
 
@@ -106,10 +111,10 @@ namespace WinFormsApp2
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
 
         }
@@ -155,15 +160,15 @@ namespace WinFormsApp2
             );
 
             if (result == DialogResult.No)
-            {
+            {  
                 return;
             }
 
-            string connection = "server=localhost;database=school;user id=root;port=3306;password=root";
+            if (!Config.TryGetConnectionString(out var connection, this)) return;
 
-            using (MySqlConnection conn = new MySqlConnection(connection))
+            try
             {
-                try
+                using (MySqlConnection conn = new MySqlConnection(connection))
                 {
                     conn.Open();
 
@@ -188,10 +193,10 @@ namespace WinFormsApp2
                         }
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
 
         }

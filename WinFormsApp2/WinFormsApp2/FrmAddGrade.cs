@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Text;
@@ -11,10 +12,16 @@ namespace WinFormsApp2
 {
     public partial class FrmAddGrade : Form
     {
+        string connstring = ConfigurationManager.ConnectionStrings["MyDbConnection"]?.ConnectionString ?? string.Empty;
         public FrmAddGrade()
         {
             InitializeComponent();
-        }
+            if (string.IsNullOrEmpty(connstring))
+            {
+                MessageBox.Show("Database connection string is not configured. Please check your app.config.", "Configuration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+        }            
 
         private void pnl_gradeColour_Click(object sender, EventArgs e)
         {
@@ -29,52 +36,49 @@ namespace WinFormsApp2
 
         private void FrmAddGrade_Load(object sender, EventArgs e)
         {
-            string connection = "server=localhost;database=school;user id=root;port=3306;password=root";
-
-            MySqlConnection conn = new MySqlConnection(connection);
+            if (!Config.TryGetConnectionString(out var connection, this)) return;
 
             try
             {
-                conn.Open();
+                using (MySqlConnection conn = new MySqlConnection(connection))
+                {
+                    conn.Open();
 
-                // Grade Group and Grade Order are textboxes now; users can type values directly.
+                    // Grade Group and Grade Order are textboxes now; users can type values directly.
 
-
-                // Colour
-                // Colour: replaced with colour panel UI; no longer populate a ComboBox
+                    // Colour
+                    // Colour: replaced with colour panel UI; no longer populate a ComboBox
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                conn.Close();
             }
 
         }
 
         private void btn_add_Click(object sender, EventArgs e)
         {
-            string connection = "server=localhost;database=school;user id=root;port=3306;password=root";
-
-            MySqlConnection conn = new MySqlConnection(connection);
+            if (!Config.TryGetConnectionString(out var connection, this)) return;
 
             try
             {
-                conn.Open();
+                using (MySqlConnection conn = new MySqlConnection(connection))
+                {
+                    conn.Open();
 
-                string query = "INSERT INTO grades (grade_name, grade_group, grade_order, colour) " +
-                               "VALUES (@grade_name, @grade_group, @grade_order, @colour)";
+                    string query = "INSERT INTO grades (grade_name, grade_group, grade_order, colour) " +
+                                   "VALUES (@grade_name, @grade_group, @grade_order, @colour)";
 
-                MySqlCommand cmd = new MySqlCommand(query, conn);
+                    MySqlCommand cmd = new MySqlCommand(query, conn);
 
-                cmd.Parameters.AddWithValue("@grade_name", txt_gradeName.Text);
-                cmd.Parameters.AddWithValue("@grade_group", txt_gradeGroup.Text);
-                cmd.Parameters.AddWithValue("@grade_order", txt_gradeOrder.Text);
-                cmd.Parameters.AddWithValue("@colour", ColorTranslator.ToHtml(pnl_gradeColour.BackColor));
+                    cmd.Parameters.AddWithValue("@grade_name", txt_gradeName.Text);
+                    cmd.Parameters.AddWithValue("@grade_group", txt_gradeGroup.Text);
+                    cmd.Parameters.AddWithValue("@grade_order", txt_gradeOrder.Text);
+                    cmd.Parameters.AddWithValue("@colour", ColorTranslator.ToHtml(pnl_gradeColour.BackColor));
 
-                cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
+                }
 
                 MessageBox.Show("Grade saved successfully!");
 
@@ -88,10 +92,22 @@ namespace WinFormsApp2
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            finally
-            {
-                conn.Close();
-            }
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
 }

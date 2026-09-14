@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\winformsapp2\\frmaddgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\frmaddgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|c:\\gamshikaa\\yarl_it\\c-sharp\\winformsapp2\\winformsapp2\\frmgrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\frmgrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|c:\\gamshikaa\\yarl_it\\c-sharp\\winformsapp2\\winformsapp2\\frmeditgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,16 +23,52 @@
       "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\frmaddgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|c:\\gamshikaa\\yarl_it\\c-sharp\\winformsapp2\\winformsapp2\\frmaddstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\frmaddstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|c:\\gamshikaa\\yarl_it\\c-sharp\\winformsapp2\\winformsapp2\\frmeditstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\frmeditstudent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\winformsapp2\\database_connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\database_connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|c:\\gamshikaa\\yarl_it\\c-sharp\\winformsapp2\\winformsapp2\\database_connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\database_connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|c:\\gamshikaa\\yarl_it\\c-sharp\\winformsapp2\\winformsapp2\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|c:\\gamshikaa\\yarl_it\\c-sharp\\winformsapp2\\winformsapp2\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\winformsapp2\\frmeditgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\frmeditgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\winformsapp2\\frmgrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\frmgrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|c:\\gamshikaa\\yarl_it\\c-sharp\\winformsapp2\\winformsapp2\\form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\form2.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|c:\\gamshikaa\\yarl_it\\c-sharp\\winformsapp2\\winformsapp2\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\config.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\winformsapp2\\frmshowgrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\frmshowgrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\winformsapp2\\frmaddgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\frmaddgrade.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\winformsapp2\\frmgrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\frmgrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|c:\\gamshikaa\\yarl_it\\c-sharp\\winformsapp2\\winformsapp2\\frmaddgrade.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -43,16 +79,8 @@
       "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\frmshowgrades.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|c:\\gamshikaa\\yarl_it\\c-sharp\\winformsapp2\\winformsapp2\\frmgrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\frmgrades.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|c:\\gamshikaa\\yarl_it\\c-sharp\\winformsapp2\\winformsapp2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|c:\\gamshikaa\\yarl_it\\c-sharp\\winformsapp2\\winformsapp2\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{FC5D3017-9F03-EC78-92D1-31A48FEDCC15}|WinFormsApp2\\WinFormsApp2.csproj|solutionrelative:winformsapp2\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,7 +94,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 9,
               "Title": "App.config",
               "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\App.config",
               "RelativeDocumentMoniker": "WinFormsApp2\\App.config",
@@ -75,8 +103,42 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2026-09-07T05:20:19.842Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmEditStudent.cs",
+              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\frmEditStudent.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\frmEditStudent.cs",
+              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\frmEditStudent.cs",
+              "RelativeToolTip": "WinFormsApp2\\frmEditStudent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T03:17:14.283Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmAddStudent.cs",
+              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\frmAddStudent.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\frmAddStudent.cs",
+              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\frmAddStudent.cs",
+              "RelativeToolTip": "WinFormsApp2\\frmAddStudent.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T03:17:10.685Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "database_connection.cs [Design]",
+              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\database_connection.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\database_connection.cs",
+              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\database_connection.cs [Design]",
+              "RelativeToolTip": "WinFormsApp2\\database_connection.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-08T11:06:02.57Z"
             },
             {
               "$type": "Document",
@@ -86,48 +148,34 @@
               "RelativeDocumentMoniker": "WinFormsApp2\\FrmEditGrade.Designer.cs",
               "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmEditGrade.Designer.cs",
               "RelativeToolTip": "WinFormsApp2\\FrmEditGrade.Designer.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAewAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T08:51:21.23Z",
+              "WhenOpened": "2026-09-08T08:51:21.23Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FrmAddGrade.cs",
+              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmAddGrade.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\FrmAddGrade.cs",
+              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmAddGrade.cs",
+              "RelativeToolTip": "WinFormsApp2\\FrmAddGrade.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-04T09:01:45.196Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "FrmShowGrades.Designer.cs",
-              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmShowGrades.Designer.cs",
-              "RelativeDocumentMoniker": "WinFormsApp2\\FrmShowGrades.Designer.cs",
-              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmShowGrades.Designer.cs",
-              "RelativeToolTip": "WinFormsApp2\\FrmShowGrades.Designer.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "FrmShowGrades.cs",
+              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmShowGrades.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\FrmShowGrades.cs",
+              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmShowGrades.cs",
+              "RelativeToolTip": "WinFormsApp2\\FrmShowGrades.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T08:04:18.555Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "FrmAddGrade.Designer.cs",
-              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmAddGrade.Designer.cs",
-              "RelativeDocumentMoniker": "WinFormsApp2\\FrmAddGrade.Designer.cs",
-              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmAddGrade.Designer.cs",
-              "RelativeToolTip": "WinFormsApp2\\FrmAddGrade.Designer.cs",
-              "ViewState": "AgIAAIEAAAAAAAAAAAASwB8AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T08:03:13.773Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\Program.cs",
-              "RelativeDocumentMoniker": "WinFormsApp2\\Program.cs",
-              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\Program.cs",
-              "RelativeToolTip": "WinFormsApp2\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-08T04:07:45.542Z",
+              "WhenOpened": "2026-09-04T08:32:24.771Z",
               "EditorCaption": ""
             },
             {
@@ -138,97 +186,151 @@
               "RelativeDocumentMoniker": "WinFormsApp2\\FrmEditGrade.cs",
               "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmEditGrade.cs",
               "RelativeToolTip": "WinFormsApp2\\FrmEditGrade.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAASwD8AAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAADMAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-04T10:54:57.636Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FrmEditGrade.cs [Design]",
-              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmEditGrade.cs",
-              "RelativeDocumentMoniker": "WinFormsApp2\\FrmEditGrade.cs",
-              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmEditGrade.cs [Design]",
-              "RelativeToolTip": "WinFormsApp2\\FrmEditGrade.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-04T10:47:18.845Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FrmAddGrade.cs",
-              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmAddGrade.cs",
-              "RelativeDocumentMoniker": "WinFormsApp2\\FrmAddGrade.cs",
-              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmAddGrade.cs",
-              "RelativeToolTip": "WinFormsApp2\\FrmAddGrade.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAqwCwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-04T09:01:45.196Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FrmAddGrade.cs [Design]",
-              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmAddGrade.cs",
-              "RelativeDocumentMoniker": "WinFormsApp2\\FrmAddGrade.cs",
-              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmAddGrade.cs [Design]",
-              "RelativeToolTip": "WinFormsApp2\\FrmAddGrade.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-04T09:00:53.958Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FrmShowGrades.cs",
-              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmShowGrades.cs",
-              "RelativeDocumentMoniker": "WinFormsApp2\\FrmShowGrades.cs",
-              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmShowGrades.cs",
-              "RelativeToolTip": "WinFormsApp2\\FrmShowGrades.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAArwEcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-04T08:32:24.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "FrmShowGrades.cs [Design]",
-              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmShowGrades.cs",
-              "RelativeDocumentMoniker": "WinFormsApp2\\FrmShowGrades.cs",
-              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmShowGrades.cs [Design]",
-              "RelativeToolTip": "WinFormsApp2\\FrmShowGrades.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-04T06:25:23.211Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
               "Title": "frmGrades.cs",
               "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\frmGrades.cs",
               "RelativeDocumentMoniker": "WinFormsApp2\\frmGrades.cs",
               "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\frmGrades.cs",
               "RelativeToolTip": "WinFormsApp2\\frmGrades.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAmwHAAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAB3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-04T05:55:00.452Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
+              "Title": "database_connection.cs",
+              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\database_connection.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\database_connection.cs",
+              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\database_connection.cs",
+              "RelativeToolTip": "WinFormsApp2\\database_connection.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-08T11:06:05.157Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Form2.cs",
+              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\Form2.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\Form2.cs",
+              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\Form2.cs",
+              "RelativeToolTip": "WinFormsApp2\\Form2.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAswAwBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T03:17:17.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Config.cs",
+              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\Config.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\Config.cs",
+              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\Config.cs",
+              "RelativeToolTip": "WinFormsApp2\\Config.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAQwBwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T03:17:04.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Form2.Designer.cs",
+              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\Form2.Designer.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\Form2.Designer.cs",
+              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\Form2.Designer.cs",
+              "RelativeToolTip": "WinFormsApp2\\Form2.Designer.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAIAwwEcAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-11T04:06:23.783Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "FrmShowGrades.Designer.cs",
+              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmShowGrades.Designer.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\FrmShowGrades.Designer.cs",
+              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmShowGrades.Designer.cs",
+              "RelativeToolTip": "WinFormsApp2\\FrmShowGrades.Designer.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-08T08:04:18.555Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "FrmAddGrade.Designer.cs",
+              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmAddGrade.Designer.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\FrmAddGrade.Designer.cs",
+              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmAddGrade.Designer.cs",
+              "RelativeToolTip": "WinFormsApp2\\FrmAddGrade.Designer.cs",
+              "ViewState": "AgIAAIEAAAAAAAAAAAASwB8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-08T08:03:13.773Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\Program.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\Program.cs",
+              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\Program.cs",
+              "RelativeToolTip": "WinFormsApp2\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-08T04:07:45.542Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FrmEditGrade.cs [Design]",
+              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmEditGrade.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\FrmEditGrade.cs",
+              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmEditGrade.cs [Design]",
+              "RelativeToolTip": "WinFormsApp2\\FrmEditGrade.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-04T10:47:18.845Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "FrmAddGrade.cs [Design]",
+              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmAddGrade.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\FrmAddGrade.cs",
+              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmAddGrade.cs [Design]",
+              "RelativeToolTip": "WinFormsApp2\\FrmAddGrade.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-04T09:00:53.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "FrmShowGrades.cs [Design]",
+              "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmShowGrades.cs",
+              "RelativeDocumentMoniker": "WinFormsApp2\\FrmShowGrades.cs",
+              "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\FrmShowGrades.cs [Design]",
+              "RelativeToolTip": "WinFormsApp2\\FrmShowGrades.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-04T06:25:23.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "frmGrades.cs [Design]",
               "DocumentMoniker": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\frmGrades.cs",
               "RelativeDocumentMoniker": "WinFormsApp2\\frmGrades.cs",
               "ToolTip": "C:\\Gamshikaa\\Yarl_IT\\C-Sharp\\WinFormsApp2\\WinFormsApp2\\frmGrades.cs [Design]",
               "RelativeToolTip": "WinFormsApp2\\frmGrades.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-04T04:31:40.25Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2026-09-04T04:31:40.25Z"
             }
           ]
         }
