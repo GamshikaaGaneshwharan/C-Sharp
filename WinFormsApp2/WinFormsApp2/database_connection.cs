@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -6,8 +7,8 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-  
+using WinFormsApp2.DAL;
+
 namespace WinFormsApp2  
 {
     public partial class database_connection : Form
@@ -16,11 +17,11 @@ namespace WinFormsApp2
         public database_connection()
         {
             InitializeComponent();
-            if(string.IsNullOrEmpty(connstring) ) 
+            if (string.IsNullOrEmpty(connstring))
             {
                 MessageBox.Show("Database connection string is not configured. Please check your app.config.", "Configuration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
-            } 
+            }
         }
 
         private void database_connection_Load(object sender, EventArgs e)
@@ -30,27 +31,12 @@ namespace WinFormsApp2
 
         private void btn_All_students_Click(object sender, EventArgs e)
         {
-            //string connection = "server=localhost;database=school;user id=root; port=3306; password=root";
-            MySqlConnection conn = new MySqlConnection(connstring);
-            try
-            {
-                conn.Open();
-                string query = "SELECT * FROM students";
-                MySqlCommand cmd = new MySqlCommand(query, conn);
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dgvStudents.DataSource = dt;
-            }
-            catch (Exception ex)
-            {   
-                MessageBox.Show(ex.ToString(), "Full Error");
-            }
-            finally
-            { 
-                conn.Close();
-            }
+            Students_DAL studentDAL = new Students_DAL();
+            DataTable dt = studentDAL.GetAll();
+            dgvStudents.DataSource = dt;
         }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(cmbGr.SelectedValue.ToString());
@@ -59,43 +45,47 @@ namespace WinFormsApp2
         private void button2_Click(object sender, EventArgs e)
         {
             cmbGr.SelectedValue = 15;
-        } 
+        }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string id = dgvStudents.CurrentRow.Cells["id"].Value.ToString();
-                Form2 f = new Form2(id);
-                f.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while retrieving the data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            }
+            string id = dgvStudents.CurrentRow.Cells["id"].Value.ToString();
+            Form2 f = new Form2(id);
+            f.ShowDialog();
         }
+
+       
 
         // Handler for delete button added in Designer (button name: btn_delete)
         private void button3_Click_1(object sender, EventArgs e)
+        {
+            bool flowControl = DeleteByID();
+            if (!flowControl)
+            {
+                return;
+            }
+        }
+
+        private bool DeleteByID()
         {
             try
             {
                 if (dgvStudents.CurrentRow == null)
                 {
                     MessageBox.Show("No row selected to delete.");
-                    return;
+                    return false;
                 }
 
                 string id = dgvStudents.CurrentRow.Cells["id"].Value?.ToString();
                 if (string.IsNullOrEmpty(id))
                 {
                     MessageBox.Show("Selected row does not contain a valid id.");
-                    return;
+                    return false;
                 }
 
                 var confirm = MessageBox.Show($"Delete student with ID {id}?", "Confirm delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (confirm != DialogResult.Yes) return;
+                if (confirm != DialogResult.Yes) return false;
 
                 //string connection = "server=localhost;database=school;user id=root; port=3306; password=root";
                 using (MySqlConnection conn = new MySqlConnection(connstring))
@@ -114,17 +104,25 @@ namespace WinFormsApp2
             {
                 MessageBox.Show("Error deleting record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            return true;
         }
 
         private void btn_Connect_Click(object sender, EventArgs e)
         {
-            // Designer expects this handler; keep simple behavior
-            MessageBox.Show("Connect clicked", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Connect();
+        }
+
+        private static void Connect()
+        {
+            //string connString = ConfigurationManager.ConnectionStrings["MySqlConnection"]?.ConnectionString ?? string.Empty;
+            Students_DAL studentDal = new Students_DAL();
+            studentDal.Connect();
         }
 
         private void btn_Show_Click(object sender, EventArgs e)
         {
-           // string connection = "server=localhost;database=school;user id=root; port=3307; password=; ";
+            // string connection = "server=localhost;database=school;user id=root; port=3307; password=; ";
             MySqlConnection conn = new MySqlConnection(connstring);
             try
             {
@@ -137,6 +135,7 @@ namespace WinFormsApp2
                 txt_Fn.Text = fname;
 
                 string lname = dgvStudents.CurrentRow.Cells["last_name"].Value.ToString();
+                
                 txt_Ln.Text = lname;
 
                 string nic = dgvStudents.CurrentRow.Cells["nic_number"].Value.ToString();
@@ -153,6 +152,28 @@ namespace WinFormsApp2
         }
 
         private void btn_edit_Click(object sender, EventArgs e)
+        {
+            GetEdit();
+        }
+
+        
+
+        private void btn_create_Click(object sender, EventArgs e)
+        {
+            // Open the Add Student form first
+            frmAddStudent addForm = new frmAddStudent();
+            if (addForm.ShowDialog() == DialogResult.OK)
+            {
+                // Refresh grid after a successful create
+                btn_All_students_Click(this, EventArgs.Empty);
+            }
+        }
+
+        private void btnGr_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void GetEdit()
         {
             try
             {
@@ -177,17 +198,6 @@ namespace WinFormsApp2
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Full Error");
-            }
-        }
-
-        private void btn_create_Click(object sender, EventArgs e)
-        {
-            // Open the Add Student form first
-            frmAddStudent addForm = new frmAddStudent();
-            if (addForm.ShowDialog() == DialogResult.OK)
-            {
-                // Refresh grid after a successful create
-                btn_All_students_Click(this, EventArgs.Empty);
             }
         }
     }

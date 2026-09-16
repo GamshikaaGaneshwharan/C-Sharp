@@ -12,8 +12,8 @@ namespace WinFormsApp2
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new FrmStudent());
-           Application.Run(new frmGrades());
-           //Application.Run(new database_connection());
+          // Application.Run(new frmGrades());
+           Application.Run(new database_connection());
 
         }
     }

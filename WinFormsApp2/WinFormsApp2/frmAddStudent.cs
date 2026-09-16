@@ -32,14 +32,6 @@ namespace WinFormsApp2
 
         string studentId;
 
-
-
-        // Parameterless constructor required by Designer and other callers
-        public frmAddStudent()
-        {
-            InitializeComponent();
-        }
-
         // Backward-compatible constructor used by callers that pass full student details
         public frmAddStudent(string id, string firstName, string lastName, string gender, string address, string dateOfBirth, string nic, string birthCert, string tele, string medium, string admissionNumber)
         {

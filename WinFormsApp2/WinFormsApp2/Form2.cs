@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using WinFormsApp2.DAL;
 
 namespace WinFormsApp2
 {
@@ -105,147 +106,128 @@ namespace WinFormsApp2
 
         private void ShowInformation_Load(object sender, EventArgs e)
         {
-            string connectionString = "Server=localhost;Database=school;Uid=root;Pwd=root;";
-            MySqlConnection conn = new MySqlConnection(connectionString);
-
-            try
-            {
-                conn.Open();
-
-                //--------------------------Load grades into ComboBox-------------------------------
-                string gradeQuery = "SELECT id, grade_name FROM grades";
-                MySqlDataAdapter gradeAdapter = new MySqlDataAdapter(gradeQuery, conn);
-                DataTable gradeTable = new DataTable();
-                gradeAdapter.Fill(gradeTable);
-
-                cmbGradeName.DataSource = gradeTable;
-                cmbGradeName.DisplayMember = "grade_name";
-                cmbGradeName.ValueMember = "id";
-
-                //-------------------------------Load Houses into ComboBox----------------------------
-                string houseQuery = "SELECT id, house_name FROM houses";
-
-                MySqlDataAdapter houseAdapter = new MySqlDataAdapter(houseQuery, conn);
-                DataTable houseTable = new DataTable();
-                houseAdapter.Fill(houseTable);
-
-                cmbHouse.DataSource = houseTable;
-                cmbHouse.DisplayMember = "house_name";
-                cmbHouse.ValueMember = "id";
-
-                //-------------------------------Load Families into ComboBox----------------------------
-
-                string familyQuery = "SELECT id FROM families";
-
-                MySqlDataAdapter familyAdapter =
-                new MySqlDataAdapter(familyQuery, conn);
-
-                DataTable familyTable = new DataTable();
-                familyAdapter.Fill(familyTable);
-
-                cmbFamily.DataSource = familyTable;
-                cmbFamily.DisplayMember = "id";
-                cmbFamily.ValueMember = "id";
-
-
-
-                //-------------------------------Load Student Data into Form Controls--------------------------------
-                MySqlCommand cmd = new MySqlCommand($"select * from students where id={this.studentId}", conn);
-
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-
-                da.Fill(dt);
+     
+                Students_DAL studentDal = new Students_DAL();
+                DataTable dt = studentDal.GetById(studentId);
 
                 DataRow dr = dt.Rows[0];
 
                 //-------------------------------Load Student Data into TextBoxes--------------------------------
                 txt_Fn.Text = dr["first_name"].ToString();
                 txt_Ln.Text = dr["last_name"].ToString();
-                txtNIC.Text = dr["nic_number"].ToString();
-                txtTel.Text = dr["tele_number"].ToString();
-                txtAdmission.Text = dr["admission_number"].ToString();
 
-                //-------------------------------Load Gender---------------------------------
-                string gender = dr["gender"].ToString();
+            ////--------------------------Load grades into ComboBox-------------------------------
+            Grades_DAL gradesDal = new Grades_DAL();
+            DataTable gradeTable = gradesDal.GetAll();
 
-                rdoM.Checked = gender == "M";
-                rdoF.Checked = gender == "F";
+            cmbGradeName.DataSource = gradeTable;
+            cmbGradeName.DisplayMember = "grade_name";
+            cmbGradeName.ValueMember = "id";
 
-                //-------------------------------Load Grade into ComboBoxes--------------------------------
-                if (dr["grade_id"] != DBNull.Value)
-                {
-                    cmbGradeName.SelectedValue = dr["grade_id"];
-                }
-                else
-                {
-                    cmbGradeName.SelectedIndex = -1;
-                    cmbGradeName.Text = "N/A";
-                }
+            ////-------------------------------Load Houses into ComboBox----------------------------
+            //string houseQuery = "SELECT id, house_name FROM houses";
 
-                //-------------------------------Load Date of Birth into DateTimePicker--------------------------------
-                if (dr["date_of_birth"] != DBNull.Value)
+            //MySqlDataAdapter houseAdapter = new MySqlDataAdapter(houseQuery, conn);
+            //DataTable houseTable = new DataTable();
+            //houseAdapter.Fill(houseTable);
 
-                {
-                    dtpDOB.Value =
-                    Convert.ToDateTime(dr["date_of_birth"]);
-                }
+            cmbHouse.DataSource = dt;
+            cmbHouse.DisplayMember = "house_name";
+            cmbHouse.ValueMember = "id";
 
-                else
-                {
-                    dtpDOB.Value = DateTime.Now;
-                }
+            ////-------------------------------Load Families into ComboBox----------------------------
 
+            //string familyQuery = "SELECT id FROM families";
 
+            //MySqlDataAdapter familyAdapter =
+            //new MySqlDataAdapter(familyQuery, conn);
 
-                //--------------------------------Load House into ComboBoxes--------------------------------
-                if (dr["house_id"] != DBNull.Value)
-                {
-                    int houseId = Convert.ToInt32(dr["house_id"]);
+            //DataTable dt = new DataTable();
+            //familyAdapter.Fill(dt);
 
-                    cmbHouse.SelectedValue = houseId;
-                }
-                else
-                {
-                    cmbHouse.SelectedIndex = -1;
-                    cmbHouse.Text = "N/A";
-                }
-
-                //-------------------------------Load Medium into ComboBoxes--------------------------------
-                if (dr["medium"] != DBNull.Value)
-                {
-                    cmbMedium.Text =
-                    dr["medium"].ToString();
-                }
-                else
-                {
-                    cmbMedium.Text = "N/A";
-                }
-
-                //---------------------Family ID-------------------------------------
-
-                if (dr["family_id"] != DBNull.Value)
-                {
-                    cmbFamily.SelectedValue = dr["family_id"].ToString();
-                }
-                else
-                {
-                    cmbFamily.SelectedIndex = -1;
-                    cmbFamily.Text = "N/A";
-                }
+            cmbFamily.DataSource = dt;
+            cmbFamily.DisplayMember = "id";
+            cmbFamily.ValueMember = "id";
 
 
 
-            }
-            catch (Exception ex)
+
+
+            txtNIC.Text = dr["nic_number"].ToString();
+            txtTel.Text = dr["tele_number"].ToString();
+            txtAdmission.Text = dr["admission_number"].ToString();
+
+            ////-------------------------------Load Gender---------------------------------
+            string gender = dr["gender"].ToString();
+
+            rdoM.Checked = gender == "M";
+            rdoF.Checked = gender == "F";
+
+            //-------------------------------Load Grade into ComboBoxes--------------------------------
+            if (dr["grade_id"] != DBNull.Value)
             {
-                MessageBox.Show(ex.Message.ToString());
+                cmbGradeName.SelectedValue = dr["grade_id"];
+            }
+            else
+            {
+                cmbGradeName.SelectedIndex = -1;
+                cmbGradeName.Text = "N/A";
             }
 
-            finally
+            //-------------------------------Load Date of Birth into DateTimePicker--------------------------------
+            if (dr["date_of_birth"] != DBNull.Value)
+
             {
-                conn.Close();
+                dtpDOB.Value =
+                Convert.ToDateTime(dr["date_of_birth"]);
             }
+
+            else
+            {
+                dtpDOB.Value = DateTime.Now;
+            }
+
+
+
+            //--------------------------------Load House into ComboBoxes--------------------------------
+            if (dr["house_id"] != DBNull.Value)
+            {
+                int houseId = Convert.ToInt32(dr["house_id"]);
+
+                cmbHouse.SelectedValue = houseId;
+            }
+            else
+            {
+                cmbHouse.SelectedIndex = -1;
+                cmbHouse.Text = "N/A";
+            }
+
+            //-------------------------------Load Medium into ComboBoxes--------------------------------
+            if (dr["medium"] != DBNull.Value)
+            {
+                cmbMedium.Text =
+                dr["medium"].ToString();
+            }
+            else
+            {
+                cmbMedium.Text = "N/A";
+            }
+
+            //---------------------Family ID-------------------------------------
+
+            if (dr["family_id"] != DBNull.Value)
+            {
+                cmbFamily.SelectedValue = dr["family_id"].ToString();
+            }
+            else
+            {
+                cmbFamily.SelectedIndex = -1;
+                cmbFamily.Text = "N/A";
+            }
+
+
+
+
         }
 
 

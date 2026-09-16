@@ -31,12 +31,6 @@ namespace WinFormsApp2
 
         string studentId;
 
-        // Parameterless constructor required by Designer and other callers
-        public frmEditStudent()
-        {
-            InitializeComponent();
-        }
-
        
 
         // Backward-compatible constructor used by callers that pass full student details

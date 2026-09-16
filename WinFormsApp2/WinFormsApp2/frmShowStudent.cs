@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using WinFormsApp2.DAL;
 
 namespace WinFormsApp2
 {
@@ -26,19 +27,21 @@ namespace WinFormsApp2
 
         private void frmShowStudent_Load(object sender, EventArgs e)
         {
-            txt_Fn.Text = fname;
-            txt_Ln.Text = lname;
-
-            if (gender == "M")
+            // The form already receives the student data via constructor parameters
+            // populate the designer controls with those values.
+            txt_Fn.Text = this.fname;
+            txt_Ln.Text = this.lname;
+            // set gender radio buttons
+            if (!string.IsNullOrEmpty(this.gender) && this.gender.ToLower().StartsWith("m"))
             {
                 radioButton1.Checked = true;
             }
-            else
+            else if (!string.IsNullOrEmpty(this.gender) && this.gender.ToLower().StartsWith("f"))
             {
                 radioButton2.Checked = true;
             }
-
-            textBox1.Text = address;
+            // address -> textBox1
+            textBox1.Text = this.address;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

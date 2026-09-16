@@ -21,4 +21,9 @@
     </Compile>
   </ItemGroup>
 
+  <!-- Exclude Visual Studio snapshot files (CopilotSnapshots) from compilation -->
+  <ItemGroup>
+    <Compile Remove="..\..\.vs\**\*.cs" />
+  </ItemGroup>
+
 </Project>

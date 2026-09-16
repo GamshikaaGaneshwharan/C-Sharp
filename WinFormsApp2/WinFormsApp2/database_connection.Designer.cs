@@ -147,6 +147,7 @@
             btnGr.TabIndex = 0;
             btnGr.Text = "All Grades";
             btnGr.UseVisualStyleBackColor = true;
+            btnGr.Click += btnGr_Click;
             // 
             // button1
             // 
